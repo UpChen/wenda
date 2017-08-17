@@ -15,10 +15,11 @@ public interface UserDAO {
     int addUser(User user);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where id=#{id}"})
-    int selectById(int id);
+    User selectById(int id);
 
     @Update({"update ", TABLE_NAME, " set password=#{password} where id=#{id}" })
     void updatePassword(User user);
 
-
+    @Delete({"delete from ", TABLE_NAME, "where id=#{id}"})
+    void deleteById(int id);
 }

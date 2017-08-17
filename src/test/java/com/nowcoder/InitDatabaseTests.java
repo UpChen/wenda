@@ -2,6 +2,7 @@ package com.nowcoder;
 
 import com.nowcoder.dao.UserDAO;
 import com.nowcoder.model.User;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,15 @@ public class InitDatabaseTests {
 			user.setPassword("");
 			user.setSalt("");
 			userDAO.addUser(user);
+
+			user.setPassword("xx");
+			userDAO.updatePassword(user);
 		}
+
+		Assert.assertEquals("xx", userDAO.selectById(1).getPassword());
+		userDAO.deleteById(1);
+
+
 	}
 
 }
