@@ -56,7 +56,7 @@ public class IndexController {
             map.put(String.valueOf(i), String.valueOf(i * i));
         }
         model.addAttribute("map", map);
-        model.addAttribute("user", new User("LEE"));
+//        model.addAttribute("user", new User("LEE"));
         return "home";
     }
 
