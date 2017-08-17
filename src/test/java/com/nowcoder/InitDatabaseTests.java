@@ -39,8 +39,6 @@ public class InitDatabaseTests {
 
 		Assert.assertEquals("xx", userDAO.selectById(1).getPassword());
 		userDAO.deleteById(1);
-
-
 	}
 
 }
