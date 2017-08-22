@@ -36,7 +36,7 @@ public class LoginController {
                 cookie.setPath("/");
                 response.addCookie(cookie);
 
-                if (StringUtils.isBlank(next)) {
+                if (StringUtils.isNotBlank(next)) {
                     return "redirect:" + next;
                 }
 
@@ -71,7 +71,7 @@ public class LoginController {
                 cookie.setPath("/");
                 response.addCookie(cookie);
 
-                if (StringUtils.isBlank(next)) {
+                if (StringUtils.isNotBlank(next)) {
                     return "redirect:" + next;
                 }
 
@@ -86,7 +86,7 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET})
+    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String layout(@CookieValue("ticket") String ticket) {
         userService.logout(ticket);
         return "redirect:/";
